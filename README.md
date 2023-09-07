@@ -1,8 +1,9 @@
 # orca
-
 to calculate spin-orbit coupling use:
 ! wB97X-D3 DEF2-SVP
+
 %TDDFT  NROOTS  10
+
         DOSOC   TRUE
 end
 %maxcore 3000
