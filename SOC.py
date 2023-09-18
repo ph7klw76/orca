@@ -23,7 +23,7 @@ def calculate_spin_orbit_coupling(filename):
                 # Calculate the total spin-orbit coupling for this line
                 total_soc = math.sqrt(abs(z)**2 + abs(x)**2 + abs(y)**2)             
                 # Update the total spin-orbit coupling for this root
-                total_soc_by_root[root0,root1] = total_soc_by_root.get(root, 0) + total_soc
+                total_soc_by_root[root0,root1] = total_soc_by_root.get(root0, 0) + total_soc
     return total_soc_by_root
 if __name__ == "__main__":
     base_path = "D:/LS19/"
