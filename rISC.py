@@ -15,7 +15,7 @@ T = 300                   # Temperature in K
 # Convert V from cm^-1 to eV
 V_eV =1.2398E-6*V_cm1
 
-# Calculate the rate constant k
+# Calculate the rate constant k  Chemistry of Materials 2022 34 (17), 8022-8030 
 k = (2 * np.pi * V_eV**2) / (hbar)
 k_rsc=k*np.exp((-1*(lambda_eV+deltaEst_eV)**2)/(4*lambda_eV*kB*T))
 k_rsc=k_rsc/(3*np.sqrt(4*np.pi*kB*T*lambda_eV))
