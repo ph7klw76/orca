@@ -50,14 +50,14 @@ def process_directory_and_update_excel(filename, excel_path ,Reorganization_Ener
     # Update the dataset with the specified value if the search_filename is found
     if filename in df['Filename'].values:
         # Find the index and update the value
-        df.loc[df['Filename'] ==filename , 'Next Column'] = Reorganization_Energy
+        df.loc[df['Filename'] ==filename , 'Reorganization_Energy'] = Reorganization_Energy
         update_status = "Value updated successfully."
     else:
         update_status = "Filename '{}' not found in the dataset.".format(filename)
-    update=excel_path.split('.xlsx')[0]+'_updated.xlsx'
-    df.to_excel(update, index=False)
+    df.to_excel(excel_path, index=False)
     return update_status 
 
+excel_path = 'D:/labkicosmos/Book2.xlsx'  # Adjust the path to your Excel file
 directory_path="D:/labkicosmos/1/round2"
 for filename in os.listdir(directory_path):
     file_path = os.path.join(directory_path, filename)
@@ -76,5 +76,4 @@ for filename in os.listdir(directory_path):
         E2=float(last_e_tot_value2)
         Reorganization_Energy=E2-E1
         print(filename,Reorganization_Energy) #reorganization energy
-        excel_path = 'D:/labkicosmos/Book2.xlsx'  # Adjust the path to your Excel file
-        process_directory_and_update_excel(filename, excel_path ,Reorganization_Energy)
+        update_status=process_directory_and_update_excel(filename, excel_path ,Reorganization_Energy)
